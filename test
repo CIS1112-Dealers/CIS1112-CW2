@@ -1,0 +1,6 @@
+echo "# CIS1112-CW2" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/CIS1112-Dealers/CIS1112-CW2.git
+git push -u origin master
