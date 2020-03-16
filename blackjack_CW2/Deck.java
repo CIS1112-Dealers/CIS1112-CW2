@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
-
+	
 	//instance
 	private ArrayList<Card> cards;
 	
-	//constructor
+	//construct
 	public Deck() {
 		this.cards = new ArrayList<Card>();
 	}
@@ -35,8 +35,45 @@ public class Deck {
 			i++;
 		}
 		return cardListOutput;
+		
+		}
+	public int deckSize() {
+		
+		return cards.size();
 	}
 	
+	public int valueOfCard() {
+		for (Card xCard: this.cards) {
+			switch (xCard.getValue()){
+			case TWO: playerDeck += 2; break;
+			case THREE: playerDeck += 3; break;
+			case FOUR: playerDeck += 4; break;
+			case FIVE: playerDeck += 5; break;
+			case SIX: playerDeck += 6; break;
+			case SEVEN: playerDeck += 7; break;
+			case EIGHT: playerDeck += 8; break;
+			case NINE: playerDeck += 9; break;
+			case TEN: playerDeck += 10; break;
+			case JACK: playerDeck += 10; break;
+			case QUEEN: playerDeck += 10; break;
+			case KING: playerDeck += 10; break;
+			}
+		}
+		if (playerDeck > 10) {
+			for (Card xCard: this.cards) {
+				switch (xCard.getValue()){
+				case ACE: playerDeck += 1; break;
+				}
+			}
+		} else {
+			for (Card xCard: this.cards) {
+				switch (xCard.getValue()){
+				case ACE: playerDeck += 11; break;
+				}
+			}
+		}
+		
+	}
 	public void removeCard(int i) {
 		this.cards.remove(i);
 	}
