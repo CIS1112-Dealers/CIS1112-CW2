@@ -1,13 +1,14 @@
 package blackjack_CW2;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck {
-	
+
 	//instance
 	private ArrayList<Card> cards;
 	
-	//construct
+	//constructor
 	public Deck() {
 		this.cards = new ArrayList<Card>();
 	}
@@ -19,6 +20,11 @@ public class Deck {
 				this.cards.add(new Card(cardValue, cardSuit));
 			}
 		}
+	}
+	
+	public void shuffle() {
+		//Shuffling the deck
+		Collections.shuffle(cards);
 	}
 	
 	public String toString() {
