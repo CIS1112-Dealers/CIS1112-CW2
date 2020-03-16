@@ -3,11 +3,11 @@ package blackjack_CW2;
 import java.util.ArrayList;
 
 public class Deck {
-
+	
 	//instance
 	private ArrayList<Card> cards;
 	
-	//constructor
+	//construct
 	public Deck() {
 		this.cards = new ArrayList<Card>();
 	}
