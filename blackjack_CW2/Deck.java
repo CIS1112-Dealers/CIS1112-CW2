@@ -36,4 +36,8 @@ public class Deck {
 		}
 		return cardListOutput;
 	}
+	
+	public void removeCard(int i) {
+		this.cards.remove(i);
+	}
 }
