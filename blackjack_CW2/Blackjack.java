@@ -7,9 +7,22 @@ public class Blackjack {
 		System.out.println("hi");
 		System.out.println("Deck Output:");
 		
-		Deck playingDeck = new Deck();
-		playingDeck.createFullDeck();
-		System.out.println(playingDeck);
+		Deck playerDeck = new Deck();
+		playerDeck.createFullDeck();
+		System.out.println("PlayerDeck:" + playerDeck);
+		
+		/*
+		 * //testing shuffle
+		 *
+		 *playerDeck.shuffle();
+		 *System.out.println(playerDeck);
+		 */
+		
+		Deck dealerDeck = new Deck();
+		dealerDeck.createFullDeck();
+		System.out.println("DealerDeck:" + dealerDeck);
+		
+
 	}
 
 }

@@ -23,6 +23,7 @@ public class Deck {
 	}
 	
 	public void shuffle() {
+		//Shuffling the deck
 		Collections.shuffle(cards);
 	}
 	
@@ -73,5 +74,7 @@ public class Deck {
 		}
 		
 	}
-		
+	public void removeCard(int i) {
+		this.cards.remove(i);
+	}
 }
