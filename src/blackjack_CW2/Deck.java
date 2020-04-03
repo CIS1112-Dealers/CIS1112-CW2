@@ -29,10 +29,8 @@ public class Deck {
 	
 	public String toString() {
 		String cardListOutput = "";
-		int i = 0;
 		for (Card xCard : this.cards) {
-			cardListOutput += "\n" + i + " - " + xCard.toString();
-			i++;
+			cardListOutput += "\n" + xCard.toString();
 		}
 		return cardListOutput;
 		
@@ -42,7 +40,9 @@ public class Deck {
 		return cards.size();
 	}
 	
-	public int valueOfCard() {
+	public int valueOfCards() {
+		int playerDeck = 0;
+		int amtOfAces = 0;
 		for (Card xCard: this.cards) {
 			switch (xCard.getValue()){
 			case TWO: playerDeck += 2; break;
@@ -57,24 +57,48 @@ public class Deck {
 			case JACK: playerDeck += 10; break;
 			case QUEEN: playerDeck += 10; break;
 			case KING: playerDeck += 10; break;
-			}
-		}
-		if (playerDeck > 10) {
-			for (Card xCard: this.cards) {
-				switch (xCard.getValue()){
-				case ACE: playerDeck += 1; break;
-				}
-			}
-		} else {
-			for (Card xCard: this.cards) {
-				switch (xCard.getValue()){
-				case ACE: playerDeck += 11; break;
-				}
+			case ACE : amtOfAces += 1; break;
 			}
 		}
 		
+		for(int i = 0; i < amtOfAces; i++) {
+			if (playerDeck> 10) {
+				playerDeck+=1;
+			}
+			else {
+				playerDeck+=11;
+			}
+		}
+		
+		return playerDeck;
+
 	}
 	public void removeCard(int i) {
 		this.cards.remove(i);
+	}
+	
+	public Card getCard(int i) {
+		return this.cards.get(i);
+	}
+	
+	public void addCard(Card addCard) {
+		this.cards.add(addCard);
+	}
+	
+	public void draw(Deck incoming) {
+		this.cards.add(incoming.getCard(0));
+		incoming.removeCard(0);
+	}
+	
+	public void moveAllToDeck(Deck moveTo) {
+		int thisDeckSize = this.cards.size();
+		for(int i = 0; i < thisDeckSize; i++) {
+			moveTo.addCard(this.getCard(i));
+		}
+		
+		for(int i = 0; i<thisDeckSize; i++) {
+			this.removeCard(0);
+		}
+		
 	}
 }
